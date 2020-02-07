@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sasoid</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript">
+		
+
+		var answer = parseInt(Math.random() * 100);
+		var tryCount = 0;
+		var maxTryCount = 3;
+
+		function readInt(){
+			return +document.getElementById("userAnswer").value;
+		}
+
+
+		function write(text){
+			document.getElementById("info").innerHTML = text;
+		}
+
+		function hide(id){
+			document.getElementById(id).style.display = "none";
+		}
+
+
+		function guess(){
+			tryCount++;
+			var userAnswer = readInt();
+			if(userAnswer == answer){
+				write("<b>Поздравляю, вы угадали!</b>");
+				hide("butt");
+				hide("userAnswer");
+			} else if(tryCount > maxTryCount){
+				write("<b>Вы проиграли!</b><br>Правильный ответ " +  answer);
+				hide("butt");
+				hide("userAnswer");
+			}else if(userAnswer > answer){
+				write("Вы ввели слишко большое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+			}else if(userAnswer < answer){
+				write("Вы ввели слишко маленькое число<br>Попробуйте еще раз. Введите число от 1 до 100");
+			}
+			}
+
+
+	</script>
+</head>
+<body>
+
+<div class="content">
+	<div class="header">
+		<a href="index.html">Главная</a>
+		<a href="puzzle.html">Игра 1</a>
+		<a href="guess.html">Игра 2</a>
+	</div>
+<div class="contentWarp">
+	<div class="content">
+		<div class="center">
+
+
+			
+			<h1>Угадай число</h1>
+
+			<center>
+			<div class="box">
+				<p id="info">Угадайте число от 0 до 100</p>
+				
+				<input type="text" id="userAnswer"><br>
+
+
+				<a class="buttons1" href="#" onClick="guess();" id="butt">Начать</a>
+
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+	
+</div>
+<div class="footer">
+	<p>Copyright &copy; Sasoid</p>
+</div>
+
+</body>
+</html>
